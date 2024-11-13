@@ -1,0 +1,26 @@
+.panel {
+  width: 100%;
+  @head-height: 50px;
+  margin-bottom: 20px;
+
+  &-head {
+    height: @head-height;
+    line-height: @head-height;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #d7d7d7;
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  &-body {
+    width: 100%;
+    height: calc(100% - @head-height);
+    padding: 10px 20px;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+  }
+
+
+}

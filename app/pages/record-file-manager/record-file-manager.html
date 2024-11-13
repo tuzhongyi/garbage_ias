@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <!-- <meta http-equiv=  "Expires" content=  "Sun Oct 15 2017 20:39:53 GMT+0800 (CST)"   />  -->
+    <title>生活垃圾管理接入系统</title>
+    <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../../assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="../../../assets/css/howell.css" />
+
+    <script src="../../../assets/js/ext.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="record-file-manager">
+      <div class="record-file-manager-body">
+        <div class="forms">
+          <div class="forms-head" id="head">根目录</div>
+          <div class="forms-body">
+            <div class="operation">
+              <div class="operation-button disabled" id="back" title="后退">
+                <i class="mdi mdi-arrow-left"></i>
+              </div>
+              <div class="operation-button disabled" id="up" title="上级文件夹">
+                <i class="mdi mdi-arrow-up"></i>
+              </div>
+              <div class="operation-path">
+                <ul id="path">
+                  <li>根目录</li>
+                  <span>/</span>
+                  <li>文件夹1</li>
+                  <span>/</span>
+                  <li>文件夹2</li>
+                </ul>
+              </div>
+              <div class="operation-button refresh" id="refresh" title="刷新">
+                <i class="mdi mdi-refresh"></i>
+              </div>
+            </div>
+            <div class="table">
+              <table id="table" border="0" cellpadding="0" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th sort="FileName">名称</th>
+                    <th sort="ModifiedTime">修改日期</th>
+                    <th sort="IsDirectory">类型</th>
+                    <th sort="FileSize">大小</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+              <div class="nodata" id="nodata" style="display: none">
+                暂无内容
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./record-file-manager.ts"></script>
+</html>

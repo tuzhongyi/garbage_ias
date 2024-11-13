@@ -1,0 +1,6 @@
+declare function bd09togcj02(bd_lon: number, bd_lat: number): number[]
+declare function gcj02tobd09(bd_lon: number, bd_lat: number): number[]
+declare function wgs84togcj02(bd_lon: number, bd_lat: number): number[]
+declare function gcj02towgs84(bd_lon: number, bd_lat: number): number[]
+declare function transformlng(bd_lon: number, bd_lat: number): number[]
+declare function out_of_china(bd_lon: number, bd_lat: number): number[]

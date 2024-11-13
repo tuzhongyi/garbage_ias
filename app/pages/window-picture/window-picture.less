@@ -1,0 +1,32 @@
+.window-picture {
+  &-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-body {
+    height: calc(100% - 50px);
+    padding: 0;
+    border: 1px solid #2d76ce;
+    position: relative;
+
+    .content {
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: transparent;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

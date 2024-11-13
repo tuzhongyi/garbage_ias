@@ -1,0 +1,68 @@
+.device-channel-discover {
+  width: 100%;
+  height: 100%;
+
+  @head-height: 50px;
+  box-sizing: border-box;
+
+  &-head {
+    background-color: #d7d7d7;
+    height: @head-height;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+
+    justify-content: space-between;
+
+    .head-title {
+      font-weight: bold;
+    }
+
+    .operation {
+      display: flex;
+      align-items: center;
+
+      .button-white {
+        width: 100px;
+      }
+    }
+  }
+
+  &-body {
+    width: 100%;
+    height: calc(100% - @head-height);
+
+    .loading {
+      width: 100%;
+      height: 100%;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+
+
+}
+
+
+.window-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+
+  .window {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 220px;
+    background-color: white;
+  }
+}

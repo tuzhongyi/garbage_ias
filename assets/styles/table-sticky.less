@@ -1,0 +1,158 @@
+.table {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+
+  &.disabled {
+    table {
+      tbody {
+        tr {
+          &:nth-child(odd):hover {
+            background-color: white;
+          }
+
+          &:nth-child(even):hover {
+            background-color: #f7f7f7;
+          }
+        }
+      }
+    }
+  }
+
+
+  table {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-width: 0 1px;
+    box-sizing: border-box;
+    font-size: 16px;
+    table-layout: fixed;
+
+    &.disabled {
+      tbody {
+        tr {
+          &:nth-child(odd):hover {
+            background-color: white;
+          }
+
+          &:nth-child(even):hover {
+            background-color: #f7f7f7;
+          }
+        }
+      }
+    }
+
+
+    thead {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background-color: #f7f7f7;
+
+
+      tr {
+        height: 40px;
+
+
+
+        th {
+          border: 1px solid #ccc;
+          border-width: 0 1px 1px 0;
+
+
+          text-align: left;
+          padding: 0 10px;
+          box-sizing: border-box;
+          font-weight: normal;
+          white-space: nowrap;
+
+          &:last-child {
+            border-right: none;
+          }
+
+          input {
+            display: block;
+          }
+
+          &.sort {
+            cursor: pointer;
+            -moz-user-select: none;
+            /*火狐*/
+            -webkit-user-select: none;
+            /*webkit浏览器*/
+            -ms-user-select: none;
+            /*IE10*/
+            -khtml-user-select: none;
+            /*早期浏览器*/
+            user-select: none;
+          }
+
+        }
+      }
+    }
+
+    tbody {
+
+      tr {
+        height: 40px;
+
+
+        &:nth-child(odd) {
+          background-color: white;
+        }
+
+        &:nth-child(even) {
+          background-color: #f7f7f7;
+        }
+
+        &:hover {
+          background-color: #d7d7d7;
+        }
+
+        &.selected {
+          background-color: #aaa;
+          color: white;
+        }
+
+
+
+        td {
+
+          border-right: 0.5px solid #ccc;
+          border-bottom: 0.5px solid #ccc;
+          padding: 0 10px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+
+          &:last-child {
+            border-right: none;
+          }
+
+          &>.operation {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .button-icon {
+              width: 20px;
+              height: 20px;
+              cursor: pointer;
+              text-align: center;
+              vertical-align: middle;
+
+              &:hover {
+                color: #666;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

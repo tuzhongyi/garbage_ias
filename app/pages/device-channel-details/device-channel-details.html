@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <!-- <meta http-equiv=  "Expires" content=  "Sun Oct 15 2017 20:39:53 GMT+0800 (CST)"   />  -->
+    <title>生活垃圾管理接入系统</title>
+    <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../../assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="../../../assets/css/howell.css" />
+
+    <script src="../../../assets/js/ext.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="device-channel-details window">
+      <div class="window-head">通道信息</div>
+      <div class="window-body device-channel-details-body">
+        <div class="forms">
+          <div class="form-item">
+            <div class="form-item-title">通道名称</div>
+            <div class="form-item-value">
+              <input id="Name" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">
+              机位(<span id="PositionNoLanguage"></span>)
+            </div>
+            <div class="form-item-value">
+              <input id="PositionNo" type="number" max="30" min="1" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">设备ID</div>
+            <div class="form-item-value">
+              <input id="DeviceId" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">IP地址</div>
+            <div class="form-item-value">
+              <input id="HostAddress" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">设备端口号</div>
+            <div class="form-item-value">
+              <input id="PortNo" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">通道号</div>
+            <div class="form-item-value">
+              <input id="ChannelNo" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">协议类型</div>
+            <div class="form-item-value">
+              <select id="ProtocolType">
+                <option value="Howell8000">Howell8000</option>
+                <option value="Onvif">Onvif</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">设备型号</div>
+            <div class="form-item-value">
+              <select id="DeviceModel">
+                <option value="G3">G3</option>
+                <option value="G5">G5</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">序列号</div>
+            <div class="form-item-value">
+              <input id="SerialNumber" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">网页端口号</div>
+            <div class="form-item-value">
+              <input id="WebPortNo" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">用户名</div>
+            <div class="form-item-value">
+              <input id="UserName" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">密码</div>
+            <div class="form-item-value">
+              <input id="Password" type="text" autocomplete="off" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="window-foot">
+        <button class="button-blue-line" id="ok">确定</button
+        ><button class="button-line" id="cancel">取消</button>
+      </div>
+    </div>
+  </body>
+  <script src="./device-channel-details.ts"></script>
+</html>

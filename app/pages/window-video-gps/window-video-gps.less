@@ -1,0 +1,118 @@
+.window-video-gps {
+  &-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-body {
+    height: calc(100% - 50px);
+    padding: 0;
+    border: 1px solid #2d76ce;
+    display: flex;
+    justify-content: space-between;
+
+
+    .content {
+      background-color: black;
+      height: 100%;
+      width: calc(70%);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      position: relative;
+
+      video {
+        width: 100%;
+        height: calc(100% - 5px);
+        outline: none;
+        border: none;
+      }
+
+      .canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+    }
+
+
+    .map {
+      width: 30%;
+      height: 100%;
+      position: relative;
+      z-index: 0;
+
+      &-controls {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        display: flex;
+        z-index: 1;
+        background-color: white;
+
+        &>* {
+          background-color: white;
+          color: #555;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+
+          &.selected {
+            background-color: #4196ff;
+            color: white;
+
+            &:hover {
+              background-color: #2d76ce;
+            }
+          }
+
+        }
+      }
+
+      #container {
+        width: 100%;
+        height: 100%;
+
+        .amap-logo {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+.amap-info-window {
+  width: auto;
+  background: #fff;
+  border-radius: 3px;
+  padding: 3px 7px;
+  box-shadow: 0 2px 6px 0 rgba(114, 124, 245, .5);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.amap-info-sharp {
+  position: absolute;
+  top: 28px;
+  bottom: 0;
+  left: 50%;
+  margin-left: -8px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #fff;
+}

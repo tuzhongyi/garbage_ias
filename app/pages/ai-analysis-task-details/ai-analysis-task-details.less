@@ -1,0 +1,57 @@
+.ai-analysis-task-details {
+  box-sizing: border-box;
+
+  .forms {
+    width: 100%;
+    margin-bottom: 20px;
+
+    .form-item {
+      &-title {
+        width: 200px;
+      }
+
+      &-value {
+        width: calc(100% - 200px);
+      }
+
+    }
+
+  }
+
+  &-body {
+
+    &-table {
+      height: calc(100% - 20px - 70px);
+      @head-height: 50px;
+
+      &-head {
+        background-color: #d7d7d7;
+        height: @head-height;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+
+        justify-content: space-between;
+
+        .head-title {
+          font-weight: bold;
+        }
+
+        .operation {
+          display: flex;
+          align-items: center;
+
+          .button-white {
+            width: 100px;
+          }
+        }
+      }
+
+      &-body {
+
+        width: 100%;
+        height: calc(100% - @head-height);
+      }
+    }
+  }
+}

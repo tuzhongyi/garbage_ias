@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <!-- <meta http-equiv=  "Expires" content=  "Sun Oct 15 2017 20:39:53 GMT+0800 (CST)"   />  -->
+    <title>生活垃圾管理接入系统</title>
+    <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../../assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="../../../assets/css/howell.css" />
+
+    <script src="../../../assets/js/ext.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/jquery.tablesorter.js"></script>
+  </head>
+
+  <body>
+    <div class="device-channel-list">
+      <div class="device-channel-list-head">
+        <div class="head-title">代理通道</div>
+        <div class="operation">
+          <div class="input-button">
+            <input
+              id="search_text"
+              type="text"
+              autocomplete="off"
+              placeholder="请输入关键字"
+            /><button id="search_button">查询</button>
+          </div>
+          <button class="button-white" id="btn_create">添加</button>
+          <button class="button-white" id="btn_delete">删除</button>
+          <button class="button-white" id="btn_discover">快速添加</button>
+          <button class="button-white" id="btn_record_start" disabled="true">
+            开始录像
+          </button>
+          <button class="button-white" id="btn_record_stop" disabled="true">
+            停止录像
+          </button>
+        </div>
+      </div>
+      <div class="device-channel-list-body">
+        <div class="table">
+          <table id="table" border="0" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th><input type="checkbox" id="checkall" /></th>
+                <th sort="Id">编号</th>
+                <th sort="Name">名称</th>
+                <th sort="HostAddress">IP地址</th>
+                <th sort="PortNo">端口号</th>
+                <th sort="WebPortNo">网页端口号</th>
+                <th sort="ProtocolType">协议类型</th>
+                <th sort="DeviceModel">型号</th>
+                <th sort="SerialNumber">设备序列号</th>
+                <th sort="ChannelState">状态</th>
+                <th sort="Recording">自动录像</th>
+                <th sort="AutoRecord">正在录像</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div style="display: none">
+      <a href="../device-channel-details/device-channel-details.html"></a>
+      <a href="../device-channel-discover/device-channel-discover.html"></a>
+    </div>
+  </body>
+  <script src="./device-channel-list.ts"></script>
+</html>

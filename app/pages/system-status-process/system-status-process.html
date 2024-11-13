@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <!-- <meta http-equiv=  "Expires" content=  "Sun Oct 15 2017 20:39:53 GMT+0800 (CST)"   />  -->
+    <title>生活垃圾管理接入系统</title>
+    <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../../assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="../../../assets/css/howell.css" />
+
+    <script src="../../../assets/js/ext.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/jquery.tablesorter.js"></script>
+  </head>
+
+  <body>
+    <div class="system-status-process">
+      <div class="system-status-process-head">进度信息</div>
+      <div class="system-status-process-body">
+        <div class="table">
+          <table id="table" border="0" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th sort="0">PID</th>
+                <th sort="1">CPU(<span id="head_CPUUsage">0</span>%)</th>
+                <th sort="2">内存(<span id="head_MemoryUsage">0</span>%)</th>
+                <th sort="3">进程名称</th>
+                <th sort="4">
+                  网络速率(<span id="head_NetworkSpeed">0</span>%)
+                </th>
+                <th sort="5">进程状态</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./system-status-process.ts"></script>
+</html>

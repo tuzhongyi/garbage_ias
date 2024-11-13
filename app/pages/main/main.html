@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <!-- <meta http-equiv=  "Expires" content=  "Sun Oct 15 2017 20:39:53 GMT+0800 (CST)"   />  -->
+    <title>生活垃圾管理接入系统</title>
+    <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../../assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="../../../assets/css/howell.css" />
+
+    <script src="../../../assets/js/ext.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="arm-main">
+      <div class="arm-main-head">
+        <div class="arm-main-head-left">
+          <div class="arm-main-head-logo logo"></div>
+        </div>
+        <div class="arm-main-head-info">
+          <div class="" id="help">
+            <i class="fa fa-question-circle-o"></i> <span>帮助</span>
+          </div>
+          <div class="user">
+            <i class="howell-icon-people"></i> <span id="username"></span>
+          </div>
+          <div class="logout" id="logout">
+            <i class="mdi mdi-logout"></i> <span>退出</span>
+          </div>
+        </div>
+      </div>
+      <div class="arm-main-body">
+        <div class="arm-main-body-menu">
+          <div class="menu"></div>
+        </div>
+        <div class="arm-main-body-content">
+          <iframe src="" id="iframe"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="window-mask" id="window_mask" style="display: none">
+      <div class="window" id="window">
+        <iframe src="" frameborder="0"></iframe>
+      </div>
+    </div>
+    <div class="window-mask" id="confirm_mask" style="display: none">
+      <div class="window" id="confirm">
+        <iframe
+          src="../window-confirm/window-confirm.html"
+          frameborder="0"
+        ></iframe>
+      </div>
+    </div>
+
+    <div style="display: none">
+      <a href="../window-confirm/window-confirm.html"></a>
+      <a href="../window-picture/window-picture.html"></a>
+      <a href="../window-video/window-video.html"></a>
+      <a href="../window-video-gps/window-video-gps.html"></a>
+      <a href="../system-device-index/system-device-index.html"></a>
+      <a href="../system-status-index/system-status-index.html"></a>
+      <a href="../system-maintain-index/system-maintain-index.html"></a>
+      <a href="../network-config-index/network-config-index.html"></a>
+      <a href="../device-channel-index/device-channel-index.html"></a>
+      <a href="../record-file-index/record-file-index.html"></a>
+      <a href="../record-config-index/record-config-index.html"></a>
+      <a href="../ai-analysis-server-index/ai-analysis-server-index.html"></a>
+      <a href="../user-manager-index/user-manager-index.html"></a>
+    </div>
+  </body>
+
+  <script src="./main.ts"></script>
+</html>

@@ -1,0 +1,81 @@
+import { LocalStorageService } from '../../common/local-storage/local-storage.service'
+import { SystemDeviceIndexCapability } from './system-device-index.capability'
+import './system-device-index.less'
+import { SystemDeviceIndexMessage } from './system-device-index.message'
+
+export namespace SystemDeviceIndex {
+  export class HtmlController {
+    constructor() {
+      this.regist()
+      this.init()
+    }
+
+    capability = new SystemDeviceIndexCapability()
+
+    private index = LocalStorageService.navigation.system.device.get()
+
+    private element = {
+      items: document.getElementsByClassName('menu-item'),
+      iframe: document.querySelector('#iframe') as HTMLIFrameElement,
+    }
+    message = new SystemDeviceIndexMessage(this.element.iframe)
+
+    private init() {
+      if (this.element.items && this.element.items.length > 0) {
+        this.onselect(this.element.items.item(this.index) as HTMLDivElement)
+      }
+    }
+
+    private regist() {
+      if (this.element.items) {
+        for (let i = 0; i < this.element.items.length; i++) {
+          const item = this.element.items[i]
+
+          item.addEventListener('click', (e: Event) => {
+            this.onselect(e.target as HTMLDivElement)
+          })
+        }
+      }
+    }
+
+    private onselect(current: HTMLDivElement) {
+      let selected = document.querySelector('.selected') as HTMLDivElement
+      if (selected) {
+        selected.classList.remove('selected')
+      }
+      current.classList.add('selected')
+
+      if (this.element.items) {
+        let index = -1
+        for (let i = 0; i < this.element.items.length; i++) {
+          const item = this.element.items[i]
+          if (item === current) {
+            index = i
+          }
+        }
+        if (index >= 0) {
+          // this.event.emit('select', index)
+
+          if (this.element.iframe) {
+            this.element.iframe.src = this.factory(index)
+            this.index = index
+            LocalStorageService.navigation.system.device.save(this.index)
+          }
+        }
+      }
+    }
+
+    private factory(index: number): string {
+      switch (index) {
+        case 0:
+          return '../system-device-info/system-device-info.html'
+        case 1:
+          return '../system-device-datetime/system-device-datetime.html'
+        default:
+          return ''
+      }
+    }
+  }
+
+  const controller = new HtmlController()
+}

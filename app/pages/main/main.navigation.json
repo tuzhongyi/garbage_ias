@@ -1,0 +1,74 @@
+{
+  "system": {
+    "id": "system",
+    "name": "系统",
+    "children": [
+      {
+        "id": "system_device",
+        "name": "设备信息"
+      },
+      {
+        "id": "system_status",
+        "name": "系统状态"
+      },
+      {
+        "id": "system_maintain",
+        "name": "系统维护"
+      }
+    ]
+  },
+  "network": {
+    "id": "network",
+    "name": "网络",
+    "children": [
+      {
+        "id": "network_config",
+        "name": "基本配置"
+      }
+    ]
+  },
+  "device": {
+    "id": "device",
+    "name": "设备管理",
+    "children": [
+      {
+        "id": "device_channel",
+        "name": "代理通道"
+      }
+    ]
+  },
+  "ai": {
+    "id": "ai",
+    "name": "AI智能分析",
+    "children": [
+      {
+        "id": "ai_server",
+        "name": "分析服务器"
+      }
+    ]
+  },
+  "record": {
+    "id": "record",
+    "name": "录像",
+    "children": [
+      {
+        "id": "record_file",
+        "name": "录像文件"
+      },
+      {
+        "id": "record_config",
+        "name": "录像存储配置"
+      }
+    ]
+  },
+  "user": {
+    "id": "user",
+    "name": "用户",
+    "children": [
+      {
+        "id": "user_manager",
+        "name": "用户管理"
+      }
+    ]
+  }
+}

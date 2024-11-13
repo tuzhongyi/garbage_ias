@@ -1,0 +1,33 @@
+.datetime {
+  &-time {
+    border: 1px solid #ccc;
+    display: flex;
+    background-color: white;
+    align-items: center;
+    color: black;
+
+
+    input {
+      border: none;
+      outline: none;
+      background-color: white;
+
+      height: 30px;
+
+      padding: 0;
+      text-align: center;
+
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+  }
+}

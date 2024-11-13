@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <!-- <meta http-equiv=  "Expires" content=  "Sun Oct 15 2017 20:39:53 GMT+0800 (CST)"   />  -->
+    <title>生活垃圾管理接入系统</title>
+    <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../../assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="../../../assets/css/howell.css" />
+
+    <script src="../../../assets/js/ext.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="network-config-tcp-ip">
+      <div class="network-config-tcp-ip-body">
+        <div class="forms">
+          <div class="form-item">
+            <div class="form-item-title">选择网口</div>
+            <div class="form-item-value">
+              <select id="Interface"></select>
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title"></div>
+            <div class="form-item-value">
+              <input type="checkbox" id="AutoNegotiation" />
+              <label for="AutoNegotiation">网卡自适应</label>
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">网卡速率</div>
+            <div class="form-item-value">
+              <select id="Speed">
+                <option value="M10">10M</option>
+                <option value="M100">100M</option>
+                <option value="M1000">1000M</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">网卡类型</div>
+            <div class="form-item-value">
+              <select id="Duplex">
+                <option value="Full">全双工</option>
+                <option value="Half">半双工</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-item">
+            <div class="form-item-title">物理地址</div>
+            <div class="form-item-value">
+              <input
+                id="MACAddress"
+                type="text"
+                autocomplete="off"
+                disabled="true"
+              />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">MTU</div>
+            <div class="form-item-value">
+              <input id="MTU" type="number" value="1500" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">地址类型</div>
+            <div class="form-item-value">
+              <input id="AddressingType" type="checkbox" />
+              <label for="AddressingType">自动获取IP地址</label>
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">设备IPv4地址</div>
+            <div class="form-item-value">
+              <input
+                id="IPv4Address"
+                type="text"
+                autocomplete="off"
+                disabled="true"
+              />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">IPv4子网掩码</div>
+            <div class="form-item-value">
+              <input
+                id="IPv4SubnetMask"
+                type="text"
+                autocomplete="off"
+                disabled="true"
+              />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">IPv4默认网关</div>
+            <div class="form-item-value">
+              <input
+                id="IPv4DefaultGateway"
+                type="text"
+                autocomplete="off"
+                disabled="true"
+              />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">首选DNS服务器</div>
+            <div class="form-item-value">
+              <input id="PrimaryDNS" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">备用DNS服务器</div>
+            <div class="form-item-value">
+              <input id="SecondaryDNS" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item submit">
+            <button class="button-blue default" id="save">
+              <i class="howell-icon-save2"></i> 保存
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./network-config-tcp-ip.ts"></script>
+</html>
