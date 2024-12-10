@@ -20,7 +20,7 @@ interface MessageEvent {
 }
 
 export class UserManagerListMessage {
-  event: EventEmitter<MessageEvent> = new EventEmitter()
+  event = new EventEmitter<MessageEvent>()
 
   constructor() {
     this.reigst()

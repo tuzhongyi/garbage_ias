@@ -1,0 +1,65 @@
+.ai-analysis-shop-sign-list-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d7d7d7;
+  box-sizing: border-box;
+
+  &-head {
+    flex-grow: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 36px;
+    background-color: #d7d7d7;
+    padding: 0 10px;
+    font-weight: bold;
+
+    .operation {
+      display: flex;
+      justify-content: flex-end;
+      gap: 5px;
+
+      &>* {
+        cursor: pointer;
+
+        &:hover {
+          color: #666;
+        }
+      }
+    }
+  }
+
+  &-body {
+    flex-grow: 1;
+    width: 100%;
+    position: relative;
+    aspect-ratio: 16/9;
+
+    .item-picture {
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    canvas {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-color: transparent;
+    }
+  }
+
+  &-foot {
+    flex-grow: 0;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+}

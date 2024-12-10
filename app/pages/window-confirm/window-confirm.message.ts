@@ -16,7 +16,7 @@ export class ConfirmWindowMessage implements ConfirmWindowMessageResponseEvent {
     ConfirmWindowMessageRequestEvent
   >(['confirm_close', 'confirm_result'])
 
-  event: EventEmitter<ConfirmWindowMessageRequestEvent> = new EventEmitter()
+  event = new EventEmitter<ConfirmWindowMessageRequestEvent>()
 
   private regist() {
     this.client.receiver.on('confirm_open', (args) => {
@@ -34,7 +34,7 @@ export class ConfirmWindowMessage implements ConfirmWindowMessageResponseEvent {
     this.client.send({
       command: 'confirm_result',
       value: result,
-      index: 0,
+      index: result.index,
     })
   }
 }

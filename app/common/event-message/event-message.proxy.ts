@@ -14,7 +14,7 @@ export class EventMessageProxy<T extends Record<string | number, any>> {
     let message = JSON.stringify(data)
 
     if (this.iframe.contentWindow) {
-      this.iframe.contentWindow.postMessage(message, '*')
+      this.iframe.contentWindow.postMessage(message, location.href)
     }
   }
 

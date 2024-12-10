@@ -63,14 +63,14 @@ export class NetworkConfigIndexMessage implements MessageReceiverEvent {
     this.proxy.message({
       command: 'save_result',
       value: args,
-      index: 0,
+      index: args.index,
     })
   }
   reboot_result(args: ResultArgs): void {
     this.proxy.message({
       command: 'reboot_result',
       value: args,
-      index: 0,
+      index: args.index,
     })
   }
 }

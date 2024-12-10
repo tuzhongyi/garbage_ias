@@ -1,0 +1,51 @@
+.ai-analysis-task-result-body-info {
+  display: flex;
+  flex-direction: column;
+
+  &-picture {
+    flex-grow: 0;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: black;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    cursor: zoom-in;
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+  }
+
+  &-body {
+    padding: 20px;
+    flex-grow: 1;
+  }
+
+  &-controls {
+    flex-grow: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 30px;
+    gap: 20px;
+
+    .page {
+      display: flex;
+      justify-content: space-between;
+      height: 20px;
+      line-height: 20px;
+
+      #page-index {
+        text-align: right;
+      }
+    }
+
+    .button-white {
+      height: 20px;
+      width: 24px;
+      margin: 0;
+    }
+  }
+}

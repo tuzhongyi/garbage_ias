@@ -1,25 +1,37 @@
 import { EventEmitter } from '../../common/event-emitter'
 import { EventMessageClient } from '../../common/event-message/event-message.client'
-import { WindowModel } from '../window/window.model'
+import { WindowMessageData, WindowModel } from '../window/window.model'
 
 export interface AIAnalysisTaskListMessageSenderEvent {
-  open(window: WindowModel): void
+  task_details(window: WindowModel): void
+  task_result(window: WindowModel): void
+}
+export interface AIAnalysisTaskListMessageReceiverEvent {
+  files(args: WindowMessageData): void
 }
 
+interface AIAnalysisShopListMessageEvent {}
+
 export class AIAnalysisTaskListMessage {
-  event: EventEmitter<MessageEvent> = new EventEmitter()
+  event = new EventEmitter<AIAnalysisShopListMessageEvent>()
 
   constructor() {
     this.reigst()
   }
 
-  private client = new EventMessageClient<AIAnalysisTaskListMessageSenderEvent>(
-    ['open']
-  )
+  private client = new EventMessageClient<
+    AIAnalysisTaskListMessageSenderEvent,
+    AIAnalysisTaskListMessageReceiverEvent
+  >(['task_details', 'task_result'])
 
-  private reigst() {}
+  private reigst() {
+    this.client.receiver.on('files', (data) => {})
+  }
 
   create(window: WindowModel) {
-    this.client.sender.emit('open', window)
+    this.client.sender.emit('task_details', window)
+  }
+  record(window: WindowModel) {
+    this.client.sender.emit('task_result', window)
   }
 }

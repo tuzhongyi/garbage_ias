@@ -1,3 +1,4 @@
+import { ShopObjectState } from '../data-core/enums/analysis/shop-object-state.enum'
 import { CalibrationAreaType } from '../data-core/enums/calibration_area_type.enum'
 import { DeviceProtocolType } from '../data-core/enums/device-protocol-type.enum'
 import { EventType } from '../data-core/enums/event-type.enum'
@@ -400,6 +401,18 @@ export class Language {
         return '启用'
       case false:
         return '未启用'
+      default:
+        return def
+    }
+  }
+  static ShopObjectState(value?: ShopObjectState, def = '未知') {
+    switch (value) {
+      case ShopObjectState.Disappeared:
+        return '消失的'
+      case ShopObjectState.Created:
+        return '新出现的'
+      case ShopObjectState.Existed:
+        return '长期存在的'
       default:
         return def
     }

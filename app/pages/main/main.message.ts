@@ -1,15 +1,12 @@
 import { EventMessageProxy } from '../../common/event-message/event-message.proxy'
 import { EventMessageData } from '../../common/event-message/event-message.proxy.model'
 import { MessageBar } from '../../common/tools/controls/message-bar/message-bar'
+import { WindowMessageData } from '../window/window.model'
 import { ArmMainConfirm } from './main-windows/main.confirm'
 import { ArmMainWindow } from './main-windows/main.window'
-import {
-  MainMessageRequestEvent,
-  MainWindowMessageResponseEvent,
-  ResultArgs,
-} from './main.event'
+import { MainMessageRequestEvent, ResultArgs } from './main.event'
 
-export class ArmMainMessage implements MainWindowMessageResponseEvent {
+export class ArmMainMessage {
   constructor(
     private iframe: HTMLIFrameElement,
     private window: ArmMainWindow,
@@ -29,6 +26,9 @@ export class ArmMainMessage implements MainWindowMessageResponseEvent {
     this.proxy.event.on('confirm', (args) => {
       this.confirm.open(args)
     })
+    this.proxy.event.on('message', (args) => {
+      this.window.message(args)
+    })
     //注册窗口页面返回结果事件
     this.window.event.on('result', (args) => {
       if (args.inner) {
@@ -41,8 +41,15 @@ export class ArmMainMessage implements MainWindowMessageResponseEvent {
       }
       this.result(args)
     })
+    this.window.event.on('message', (data) => {
+      this.message(data)
+    })
+    this.window.event.on('confirm', (args) => {
+      this.confirm.open(args)
+    })
     this.confirm.event.on('result', (args) => {
       this.result(args)
+      this.window.result(args)
     })
   }
 
@@ -57,5 +64,13 @@ export class ArmMainMessage implements MainWindowMessageResponseEvent {
       index: 0,
     }
     this.proxy.message(data)
+  }
+  message(data: WindowMessageData): void {
+    let _data: EventMessageData = {
+      command: 'result',
+      value: data.data,
+      index: data.index,
+    }
+    this.proxy.message(_data)
   }
 }

@@ -1,11 +1,11 @@
 import { AnalysisTask } from '../../../data-core/models/arm/analysis/analysis-task.model'
 import { HowellHttpClient } from '../../../data-core/requests/http-client'
-import { ArmServerAnalysisRequestService } from '../../../data-core/requests/services/servers/server-analysis.service'
+import { ArmAnalysisServerRequestService } from '../../../data-core/requests/services/analysis/server/analysis-server.service'
 import { AIAnalysisTaskDetailsFileBusiness } from './ai-analysis-task-details-file.business'
 
 export class AIAnalysisTaskDetailsBusiness {
   private client = new HowellHttpClient.HttpClient()
-  private service = new ArmServerAnalysisRequestService(this.client.http)
+  private service = new ArmAnalysisServerRequestService(this.client.http)
 
   file = new AIAnalysisTaskDetailsFileBusiness(this.client.http)
 

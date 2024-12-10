@@ -42,6 +42,10 @@
     "name": "AI智能分析",
     "children": [
       {
+        "id": "ai_task",
+        "name": "智能分析"
+      },
+      {
         "id": "ai_server",
         "name": "分析服务器"
       }

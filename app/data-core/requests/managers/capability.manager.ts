@@ -6,14 +6,14 @@ import { InputProxyCapability } from '../../models/capabilities/arm/input-proxy-
 import { NetworkCapability } from '../../models/capabilities/arm/network-capability.model'
 import { SecurityCapability } from '../../models/capabilities/arm/security-capability.model'
 import { HowellHttpClient } from '../http-client'
-import { ArmServerAnalysisRequestService } from '../services/servers/server-analysis.service'
+import { ArmAnalysisServerRequestService } from '../services/analysis/server/analysis-server.service'
 import { ArmSystemRequestService } from '../services/system/system.service'
 
 export class CapabilityManager {
   private client = new HowellHttpClient.HttpClient()
   private service = {
     system: new ArmSystemRequestService(this.client.http),
-    analysis: new ArmServerAnalysisRequestService(this.client.http),
+    analysis: new ArmAnalysisServerRequestService(this.client.http),
   }
 
   private loading = {

@@ -1,8 +1,8 @@
 import { LoginStorage } from './login.storage'
 import { LogoutStorage } from './logout.storage'
 import { NavigationStorage } from './navigation.storage'
-import { VideoGPSConfigStorage } from './robot-config.storage'
 import { SessionStorage } from './session.storage'
+import { VideoGPSConfigStorage } from './video-gps-config.storage'
 
 export class LocalStorageService {
   static navigation = new NavigationStorage()

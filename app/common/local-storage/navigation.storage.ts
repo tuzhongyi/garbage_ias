@@ -1,5 +1,6 @@
 import { IStorage } from './local-storage.model'
 import { NavigationAIAnalysisServerStorage } from './navigation-ai-analysis-server.storage'
+import { NavigationAIAnalysisTaskStorage } from './navigation-ai-analysis-task.storage'
 import { NavigationDeviceChannelStorage } from './navigation-device-channel.storage'
 import { NavigationNetworkConfigStorage } from './navigation-network-config.storage'
 import { NavigationNetworkFrpStorage } from './navigation-network-frp.storage'
@@ -64,6 +65,7 @@ export class NavigationStorage implements IStorage<NavigationIndex> {
   }
   ai = {
     server: new NavigationAIAnalysisServerStorage(),
+    task: new NavigationAIAnalysisTaskStorage(),
   }
   record = {
     config: new NavigationRecordConfigStorage(),

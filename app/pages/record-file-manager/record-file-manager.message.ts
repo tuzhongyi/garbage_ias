@@ -9,7 +9,7 @@ export interface RecordFileManagerMessageSenderEvent {
 interface MessageEvent {}
 
 export class RecordFileManagerMessage {
-  event: EventEmitter<MessageEvent> = new EventEmitter()
+  event = new EventEmitter<MessageEvent>()
   constructor() {
     this.reigst()
   }

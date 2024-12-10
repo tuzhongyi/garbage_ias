@@ -16,7 +16,7 @@ interface MessageEvent {
 export class AIAnalysisServerInfoMessage
   implements AIAnalysisServerInfoMessageSenderEvent
 {
-  event: EventEmitter<MessageEvent> = new EventEmitter()
+  event = new EventEmitter<MessageEvent>()
   constructor() {
     this.reigst()
   }

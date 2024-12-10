@@ -124,7 +124,8 @@
       var totalNum = me.options.totalNum;
       if (pageNum === 1) {
         me.element.children('#firstPage, #prePage').prop('disabled', true);
-      } else if (pageNum === totalNum) {
+      }
+      if (pageNum === totalNum) {
         me.element.children('#lastPage, #nextPage').prop('disabled', true);
       }
     }

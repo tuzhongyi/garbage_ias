@@ -47,12 +47,14 @@ export namespace AIAnalysisTaskDetails {
           .create(data)
           .then((x) => {
             this.message.result({
+              index: 0,
               result: true,
             })
             this.message.close()
           })
           .catch((e) => {
             this.message.result({
+              index: 0,
               result: false,
               message: e.message,
               inner: true,
@@ -61,6 +63,7 @@ export namespace AIAnalysisTaskDetails {
       } catch (e) {
         console.error(e)
         this.message.result({
+          index: 0,
           result: false,
           message: (e as any).message,
           inner: true,

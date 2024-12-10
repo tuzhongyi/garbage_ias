@@ -9,4 +9,7 @@ export abstract class AbstractUrl {
   list() {
     return `${this.basic()}/List`
   }
+  source(id: string) {
+    return `${this.item(id)}/Sources`
+  }
 }

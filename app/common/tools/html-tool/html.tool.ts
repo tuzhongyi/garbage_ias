@@ -33,15 +33,20 @@ export class HtmlTool {
   static set(
     value?: string | number | boolean | Date,
     def: string = '',
-    format = 'yyyy-MM-dd HH:mm:ss'
+    opts?: { format?: string; percent?: boolean }
   ): string {
     if (value == undefined || value == null) {
       return def
     } else if (typeof value === 'number') {
+      let percent = opts?.percent ?? false
+      if (percent) {
+        return (value * 100).toFixed(2)
+      }
       return value.toString()
     } else if (typeof value === 'boolean') {
       return JSON.stringify(value)
     } else if (value instanceof Date) {
+      let format = opts?.format ?? 'yyyy-MM-dd HH:mm:ss'
       return value.format(format)
     } else {
       return value

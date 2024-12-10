@@ -22,7 +22,7 @@ interface MessageEvent {
 export class SystemMaintainConfigMessage
   implements SystemMaintainConfigMessageSenderEvent
 {
-  event: EventEmitter<MessageEvent> = new EventEmitter()
+  event = new EventEmitter<MessageEvent>()
   constructor() {
     this.reigst()
   }

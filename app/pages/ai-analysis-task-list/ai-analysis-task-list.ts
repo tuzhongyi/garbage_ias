@@ -39,12 +39,17 @@ export namespace AIAnalysisTaskList {
         this.args.name = name
         this.load(1)
       })
-      this.html.table.event.on('page', (index: number) => {
-        this.load(index)
-      })
       this.html.event.on('create', () => {
         this.window.details.clear()
         this.message.create(this.window.details)
+      })
+      this.html.table.event.on('page', (index: number) => {
+        this.load(index)
+      })
+      this.html.table.event.on('record', (item) => {
+        this.window.record.clear()
+        this.window.record.query.id = item.Id
+        this.message.record(this.window.record)
       })
     }
 

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <!-- <meta http-equiv=  "Expires" content=  "Sun Oct 15 2017 20:39:53 GMT+0800 (CST)"   />  -->
+    <title>生活垃圾管理接入系统</title>
+    <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../../assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="../../../assets/css/howell.css" />
+
+    <script src="../../../assets/js/ext.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/map/CoordinateTransform.js"></script>
+  </head>
+
+  <body>
+    <div class="ai-analysis-shop-details window">
+      <div class="window-head">通道信息</div>
+      <div class="window-body ai-analysis-shop-details-body">
+        <div class="ai-analysis-shop-details-body-map">
+          <div id="container"></div>
+        </div>
+        <div class="forms">
+          <div class="form-item">
+            <div class="form-item-title">商铺名称</div>
+            <div class="form-item-value">
+              <input id="Name" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">分店名称</div>
+            <div class="form-item-value">
+              <input id="BranchName" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">地址</div>
+            <div class="form-item-value">
+              <input id="Address" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">联系方式</div>
+            <div class="form-item-value">
+              <input id="Telphone" type="text" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">商铺坐标</div>
+            <div class="form-item-value">
+              <input id="Longitude" type="text" autocomplete="off" readonly />
+              <input id="Latitude" type="text" autocomplete="off" readonly />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">
+              <label for="Locked">锁定内容</label>
+            </div>
+            <div class="form-item-value">
+              <input id="Locked" type="checkbox" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">
+              <label for="Marking">屏蔽数据</label>
+            </div>
+            <div class="form-item-value">
+              <input id="Marking" type="checkbox" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">首次出现</div>
+            <div class="form-item-value">
+              <input id="BeginTime" type="text" autocomplete="off" disabled />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="form-item-title">最近出现</div>
+            <div class="form-item-value">
+              <input id="EndTime" type="text" autocomplete="off" disabled />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="window-foot">
+        <button class="button-blue-line" id="ok">确定</button
+        ><button class="button-line" id="cancel">取消</button>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    window._AMapSecurityConfig = {
+      securityJsCode: 'e1f1eeaee1b77531fa46d5230e2dfe20',
+    }
+  </script>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=12be1c6c0ea1645659e2b7dcb2e263c5&plugin=AMap.GeoLocation"></script>
+  <script src="./ai-analysis-shop-details.ts"></script>
+</html>

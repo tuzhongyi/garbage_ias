@@ -62,21 +62,21 @@ export class SystemMaintainIndexMessage
     this.proxy.message({
       command: 'reboot_result',
       value: args,
-      index: 0,
+      index: args.index,
     })
   }
   shutdown_result(args: ResultArgs): void {
     this.proxy.message({
       command: 'shutdown_result',
       value: args,
-      index: 0,
+      index: args.index,
     })
   }
   factoryreset_result(args: ResultArgs): void {
     this.proxy.message({
       command: 'factoryreset_result',
       value: args,
-      index: 0,
+      index: args.index,
     })
   }
 }

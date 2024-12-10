@@ -93,6 +93,7 @@ function gcj02towgs84 (lng, lat) {
     return [lng * 2 - mglng, lat * 2 - mglat]
   }
 }
+window.gcj02towgs84 = gcj02towgs84
 
 function transformlat (lng, lat) {
   var ret = -100.0 + 2.0 * lng + 3.0 * lat + 0.2 * lat * lat + 0.1 * lng * lat + 0.2 * Math.sqrt(Math.abs(lng));

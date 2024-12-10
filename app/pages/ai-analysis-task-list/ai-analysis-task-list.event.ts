@@ -1,3 +1,5 @@
+import { AnalysisTask } from '../../data-core/models/arm/analysis/analysis-task.model'
+
 export interface AIAnalysisTaskListEvent {
   search(name?: string): void
   create(): void
@@ -9,4 +11,5 @@ export interface AIAnalysisTaskListEvent {
 }
 export interface AIAnalysisTaskListHtmlTableEvent {
   page(index: number): void
+  record(item: AnalysisTask): void
 }

@@ -19,7 +19,7 @@ interface MessageEvent {
 export class NetworkConfigTCPIPMessage
   implements NetworkConfigTCPIPMessageSenderEvent
 {
-  event: EventEmitter<MessageEvent> = new EventEmitter()
+  event = new EventEmitter<MessageEvent>()
   constructor() {
     this.reigst()
   }

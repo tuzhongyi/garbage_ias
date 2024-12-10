@@ -1,4 +1,5 @@
 @import url("./howell-button.css");
+@import url("./howell-forms.css");
 
 html,
 body {
@@ -29,42 +30,7 @@ iframe {
 }
 
 
-.forms {
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
 
-.forms .form-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 30px;
-}
-
-.forms .form-item .form-item-title {
-  width: 100px;
-  white-space: nowrap;
-  flex-grow: 0;
-}
-
-.forms .form-item .form-item-value {
-  width: calc(100% - 100px);
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.forms .form-item .form-item-value.icon {
-  display: flex;
-  position: relative;
-}
-
-.forms .form-item.submit {
-  margin-top: 20px;
-}
 
 input[type="checkbox"] {
   border-radius: 0.25rem;

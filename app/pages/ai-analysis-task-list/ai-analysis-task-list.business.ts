@@ -1,11 +1,13 @@
 import { HowellHttpClient } from '../../data-core/requests/http-client'
-import { GetAnalysisTaskListParams } from '../../data-core/requests/services/servers/server-analysis.params'
-import { ArmServerAnalysisRequestService } from '../../data-core/requests/services/servers/server-analysis.service'
+import { GetAnalysisTaskListParams } from '../../data-core/requests/services/analysis/server/analysis-server.params'
+import { ArmAnalysisServerRequestService } from '../../data-core/requests/services/analysis/server/analysis-server.service'
+import { MediumRequestService } from '../../data-core/requests/services/medium/medium.service'
 import { AIAnalysisTaskListTableArgs } from './ai-analysis-task-list.model'
 
 export class AIAnalysisTaskListBusiness {
   client = new HowellHttpClient.HttpClient()
-  service = new ArmServerAnalysisRequestService(this.client.http)
+  service = new ArmAnalysisServerRequestService(this.client.http)
+  medium = new MediumRequestService()
 
   load(index: number, size: number, args: AIAnalysisTaskListTableArgs) {
     let params = new GetAnalysisTaskListParams()
@@ -24,5 +26,8 @@ export class AIAnalysisTaskListBusiness {
       this.service.delete(ids[i])
     }
     return true
+  }
+  picture(url: string) {
+    return this.medium.picture(url)
   }
 }

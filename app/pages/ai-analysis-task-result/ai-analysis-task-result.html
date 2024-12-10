@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <!-- <meta http-equiv=  "Expires" content=  "Sun Oct 15 2017 20:39:53 GMT+0800 (CST)"   />  -->
+    <title>生活垃圾管理接入系统</title>
+    <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../../assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="../../../assets/css/howell.css" />
+
+    <script src="../../../assets/js/ext.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/map/CoordinateTransform.js"></script>
+  </head>
+
+  <body>
+    <div class="ai-analysis-task-result window">
+      <div class="window-head ai-analysis-task-result-head">
+        <div class="title">AI分析结果</div>
+        <div class="operation">
+          <button id="close"><i class="howell-icon-Close"></i></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="ai-analysis-task-result-main">
+          <div class="forms">
+            <div class="form-item">
+              <div class="form-item-title">任务名称</div>
+              <div class="form-item-value">
+                <input type="text" id="task_name" readonly />
+              </div>
+            </div>
+            <div class="form-item">
+              <div class="form-item-title">任务类型</div>
+              <div class="form-item-value">
+                <select id="task_type" readonly></select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ai-analysis-task-result-body">
+          <div class="ai-analysis-task-result-body-map">
+            <div id="container"></div>
+          </div>
+          <div class="ai-analysis-task-result-body-info">
+            <div class="ai-analysis-task-result-body-info-picture" id="picture">
+              <canvas id="canvas"></canvas>
+            </div>
+            <div class="ai-analysis-task-result-body-info-body">
+              <div class="forms">
+                <div class="form-item">
+                  <div class="form-item-title">招牌名称</div>
+                  <div class="form-item-value">
+                    <input type="text" id="Text" readonly />
+                  </div>
+                </div>
+                <div class="form-item">
+                  <div class="form-item-title">置信度</div>
+                  <div class="form-item-value unit">
+                    <input type="text" id="Confidence" readonly />
+                    <i>%</i>
+                  </div>
+                </div>
+                <div class="form-item">
+                  <div class="form-item-title">发现时间</div>
+                  <div class="form-item-value">
+                    <input type="text" id="Time" readonly />
+                  </div>
+                </div>
+                <div class="form-item">
+                  <div class="form-item-title">商铺ID</div>
+                  <div class="form-item-value">
+                    <input type="text" id="shop-id" readonly />
+                  </div>
+                </div>
+                <div class="form-item">
+                  <div class="form-item-title">商铺名称</div>
+                  <div class="form-item-value">
+                    <input type="text" id="shop-name" readonly />
+                  </div>
+                </div>
+                <div class="form-item">
+                  <div class="form-item-title">联系方式</div>
+                  <div class="form-item-value">
+                    <input type="text" id="shop-telphone" readonly />
+                  </div>
+                </div>
+                <div class="form-item">
+                  <div class="form-item-title">商铺地址</div>
+                  <div class="form-item-value">
+                    <input type="text" id="shop-address" readonly />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ai-analysis-task-result-body-info-controls" id="page">
+              <button class="button-white" id="page-prev">
+                <i class="howell-icon-arrow2left"></i>
+              </button>
+              <div class="page">
+                <div id="page-index">0</div>
+                /
+                <div id="page-count">0</div>
+              </div>
+              <button class="button-white" id="page-next">
+                <i class="howell-icon-arrow2right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="ai-analysis-task-result-body-table">
+            <div class="table">
+              <table id="table" border="0" cellpadding="0" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>序号</th>
+                    <th sort="Text">招牌名称</th>
+                    <th sort="Confidence">置信度</th>
+                    <th sort="Time">时间</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    window._AMapSecurityConfig = {
+      securityJsCode: 'e1f1eeaee1b77531fa46d5230e2dfe20',
+    }
+  </script>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=12be1c6c0ea1645659e2b7dcb2e263c5&plugin=AMap.GeoLocation,GeometryUtil"></script>
+  <script src="./ai-analysis-task-result.ts"></script>
+</html>

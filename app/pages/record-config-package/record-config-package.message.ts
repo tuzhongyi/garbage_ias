@@ -16,7 +16,7 @@ interface MessageEvent {
 export class RecordConfigPackageMessage
   implements RecordConfigPackageMessageSenderEvent
 {
-  event: EventEmitter<MessageEvent> = new EventEmitter()
+  event = new EventEmitter<MessageEvent>()
   constructor() {
     this.reigst()
   }

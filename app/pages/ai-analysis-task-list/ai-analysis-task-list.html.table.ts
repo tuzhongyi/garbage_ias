@@ -7,6 +7,7 @@ import { AIAnalysisTaskListHtmlTableEvent } from './ai-analysis-task-list.event'
 
 declare const $: any
 export class AIAnalysisTaskListHtmlTable {
+  event: EventEmitter<AIAnalysisTaskListHtmlTableEvent> = new EventEmitter()
   constructor() {
     this.init()
   }
@@ -14,39 +15,40 @@ export class AIAnalysisTaskListHtmlTable {
   private tbody = document.querySelector(
     '#table tbody'
   ) as HTMLTableSectionElement
-  event: EventEmitter<AIAnalysisTaskListHtmlTableEvent> = new EventEmitter()
+
   private widths = []
+  private datas: AnalysisTask[] = []
 
   private init() {
     HtmlTool.table.colgroup.append(this.table, this.widths)
   }
 
-  private appendTd(
-    tr: HTMLTableRowElement,
-    text: string,
-    title: string = text
-  ) {
-    let td = document.createElement('td')
-    td.innerText = text
-    td.title = title
-    tr.appendChild(td)
-  }
-
-  private async appendTr(
-    tbody: HTMLTableSectionElement,
-    data: AnalysisTask,
-    index: number
-  ) {
-    let row = document.createElement('tr')
-    this.appendTd(row, (index + 1).toString())
-    this.appendTd(row, HtmlTool.set(data.Name, '-'))
-    this.appendTd(row, await EnumTool.TaskType(data.TaskType, '-'))
-    this.appendTd(row, HtmlTool.set(data.GroupId, '-'))
-    this.appendTd(row, await EnumTool.TaskState(data.State, '-'))
-    this.appendTd(row, HtmlTool.set(data.Progress, '-'))
-    this.appendTd(row, HtmlTool.set(data.StartTime, '-'))
-    this.appendTd(row, HtmlTool.set(data.StopTime, '-'))
-    tbody.appendChild(row)
+  private async append(data: AnalysisTask, index: number) {
+    let items = [
+      (index + 1).toString(),
+      HtmlTool.set(data.Name, '-'),
+      await EnumTool.TaskType(data.TaskType, '-'),
+      HtmlTool.set(data.GroupId, '-'),
+      await EnumTool.TaskState(data.State, '-'),
+      HtmlTool.set(data.Progress, '-'),
+      HtmlTool.set(data.StartTime, '-'),
+      HtmlTool.set(data.StopTime, '-'),
+    ]
+    HtmlTool.table.append(this.tbody, items, [
+      {
+        inner: "<i class='howell-icon-task_misson'></i>",
+        id: data.Id,
+        click: (args) => {
+          let target = args.e.currentTarget as HTMLElement
+          let id = target.id
+          console.log(this.datas, id)
+          let item = this.datas.find((x) => x.Id === id)
+          if (item) {
+            this.event.emit('record', item)
+          }
+        },
+      },
+    ])
   }
 
   clear() {
@@ -54,8 +56,9 @@ export class AIAnalysisTaskListHtmlTable {
   }
 
   async load(datas: AnalysisTask[], page: Page) {
+    this.datas = datas
     for (let i = 0; i < datas.length; i++) {
-      await this.appendTr(this.tbody, datas[i], i)
+      await this.append(datas[i], i)
     }
     $('#pagination').paging({
       pageNum: page.PageIndex, // 当前页面

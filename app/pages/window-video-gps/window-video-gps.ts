@@ -22,6 +22,7 @@ export namespace VideoGPSWindow {
       this.html.event.on('close', this.onclose.bind(this))
       this.html.event.on('error', (e) => {
         this.message.result({
+          index: 0,
           result: false,
           message: e.message,
           inner: true,

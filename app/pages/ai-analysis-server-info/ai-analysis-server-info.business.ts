@@ -1,15 +1,15 @@
 import { AnalysisServer } from '../../data-core/models/arm/analysis/analysis-server.model'
 import { HowellHttpClient } from '../../data-core/requests/http-client'
-import { ArmServerAnalysisRequestService } from '../../data-core/requests/services/servers/server-analysis.service'
+import { ArmAnalysisRequestService } from '../../data-core/requests/services/analysis/analysis.service'
 
 export class AIAnalysisServerInfoBusiness {
   client = new HowellHttpClient.HttpClient()
-  service = new ArmServerAnalysisRequestService(this.client.http)
+  service = new ArmAnalysisRequestService(this.client.http)
 
   private _servers: AnalysisServer[] = []
   async load() {
     if (this._servers.length === 0) {
-      this._servers = await this.service.array()
+      this._servers = await this.service.server.array()
     }
     if (this._servers.length > 0) {
       return this._servers[0]
@@ -18,6 +18,6 @@ export class AIAnalysisServerInfoBusiness {
   }
 
   update(data: AnalysisServer) {
-    return this.service.update(data)
+    return this.service.server.update(data)
   }
 }

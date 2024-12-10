@@ -1,5 +1,6 @@
 import { EventEmitter } from '../../common/event-emitter'
 import { LocalStorageService } from '../../common/local-storage/local-storage.service'
+import { SourceStorage } from '../../common/local-storage/source/source.storage'
 import { ArmMainEventArgs } from './main.event'
 import './main.less'
 import navigation from './main.navigation.json'
@@ -38,6 +39,7 @@ export class ArmMainHtmlController {
   }
 
   private init() {
+    this.initsource()
     let json = navigation as unknown as { [key: string]: IEnumItem }
     let index = 0
     for (const key in json) {
@@ -58,6 +60,19 @@ export class ArmMainHtmlController {
       index++
     }
   }
+
+  initsource() {
+    let red = document.getElementById('map-marker-red') as HTMLLinkElement
+    let blue = document.getElementById('map-marker-blue') as HTMLLinkElement
+    let _default = document.getElementById('map-point') as HTMLLinkElement
+    let map = {
+      amap_red: red.href,
+      amap_blue: blue.href,
+      default: _default.href,
+    }
+    SourceStorage.map.save(map)
+  }
+
   private create(id: string, inner: string, classname: string[], type: string) {
     let div = document.createElement('div')
     div.className = `menu-item ${classname.join(' ')}`
@@ -128,6 +143,8 @@ export class ArmMainHtmlController {
         return '../record-file-index/record-file-index.html'
       case 'record_config':
         return '../record-config-index/record-config-index.html'
+      case 'ai_task':
+        return '../ai-analysis-task-index/ai-analysis-task-index.html'
       case 'ai_server':
         return '../ai-analysis-server-index/ai-analysis-server-index.html'
       case 'user_manager':

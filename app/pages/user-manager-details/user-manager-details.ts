@@ -8,10 +8,13 @@ import { UserManagerDetailsMessage } from './user-manager-details.message'
 export namespace UserManagerDetails {
   class Controller {
     constructor() {
-      this.init().then(() => {
-        this.regist()
-        this.load()
-      })
+      this.init()
+        .then(() => {
+          this.load()
+        })
+        .finally(() => {
+          this.regist()
+        })
     }
     private html = new UserManagerDetailsHtmlController()
     private business = new UserManagerDetailsBusiness()
@@ -59,14 +62,13 @@ export namespace UserManagerDetails {
       }
       promise
         .then((x) => {
-          this.message.result({
-            result: true,
-          })
+          this.message.result({ index: 0, result: true })
           this.message.close()
         })
         .catch((e) => {
           console.log(e)
           this.message.result({
+            index: 0,
             result: false,
             inner: true,
             message: e.message,

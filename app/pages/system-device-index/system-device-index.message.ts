@@ -47,7 +47,7 @@ export class SystemDeviceIndexMessage implements MessageReceiverEvent {
     this.proxy.message({
       command: 'save_result',
       value: args,
-      index: 0,
+      index: args.index,
     })
   }
 }

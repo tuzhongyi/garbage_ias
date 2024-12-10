@@ -16,7 +16,7 @@ interface MessageEvent {
 export class NetworkConfigSSHMessage
   implements NetworkConfigSSHMessageSenderEvent
 {
-  event: EventEmitter<MessageEvent> = new EventEmitter()
+  event = new EventEmitter<MessageEvent>()
   constructor() {
     this.reigst()
   }

@@ -66,8 +66,6 @@ export namespace AIAnalysisServerIndex {
       switch (index) {
         case 0:
           return '../ai-analysis-server-info/ai-analysis-server-info.html'
-        case 1:
-          return '../ai-analysis-task-list/ai-analysis-task-list.html'
         default:
           return ''
       }

@@ -11,13 +11,10 @@ import {
   AIAnalysisServerInfoMessageReceiverEvent,
   AIAnalysisServerInfoMessageSenderEvent,
 } from '../ai-analysis-server-info/ai-analysis-server-info.message'
-import { AIAnalysisTaskListMessageSenderEvent } from '../ai-analysis-task-list/ai-analysis-task-list.message'
 
 interface MessageReceiverEvent
   extends AIAnalysisServerInfoMessageReceiverEvent {}
-interface MessageSenderEvent
-  extends AIAnalysisServerInfoMessageSenderEvent,
-    AIAnalysisTaskListMessageSenderEvent {}
+interface MessageSenderEvent extends AIAnalysisServerInfoMessageSenderEvent {}
 
 enum MessageCommand {
   default,
@@ -34,20 +31,12 @@ export class AIAnalysisServerIndexMessage implements MessageReceiverEvent {
   client = new EventMessageClient<
     MainMessageRequestEvent,
     MainMessageResponseEvent
-  >(['open', 'confirm'])
+  >(['confirm'])
   proxy: EventMessageProxy<MessageSenderEvent>
 
   command?: MessageCommand
 
   regist() {
-    this.proxy.event.on('open', (args) => {
-      this.command = MessageCommand.default
-      this.client.sender.emit('open', args)
-    })
-    // this.proxy.event.on('delete_confirm', (args) => {
-    //   this.command = MessageCommand.delete
-    //   this.client.sender.emit('confirm', args)
-    // })
     this.proxy.event.on('info_confirm', (args) => {
       this.command = MessageCommand.info
       this.client.sender.emit('confirm', args)
@@ -70,14 +59,14 @@ export class AIAnalysisServerIndexMessage implements MessageReceiverEvent {
     this.proxy.message({
       command: 'delete_result',
       value: result,
-      index: 0,
+      index: result.index,
     })
   }
   info_result(args: ResultArgs): void {
     this.proxy.message({
       command: 'info_result',
       value: args,
-      index: 0,
+      index: args.index,
     })
   }
 }

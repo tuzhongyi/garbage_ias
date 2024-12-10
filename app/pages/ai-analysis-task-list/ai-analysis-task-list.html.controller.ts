@@ -64,11 +64,11 @@ export class AIAnalysisTaskListHtmlController {
 
   private init() {
     this.initDuration()
-    this.initTask()
+    this.initFilter()
   }
 
   private initDuration() {
-    let duration = DateTimeTool.allDay(new Date())
+    let duration = DateTimeTool.allYear(new Date())
     let begin = this.initDateTimePicker(
       this.element.filter.time.begin,
       duration.begin
@@ -85,17 +85,19 @@ export class AIAnalysisTaskListHtmlController {
     }
   }
 
-  private initTask() {
+  private initFilter() {
     Manager.capability.analysis
       .then((x) => {
         if (x.TaskTypes) {
-          HtmlTool.select.append(
-            {
-              Id: '',
-              Name: '全部',
-            },
-            this.element.filter.type
-          )
+          if (x.TaskTypes.length > 1) {
+            HtmlTool.select.append(
+              {
+                Id: '',
+                Name: '全部',
+              },
+              this.element.filter.type
+            )
+          }
           for (let i = 0; i < x.TaskTypes.length; i++) {
             const item = x.TaskTypes[i]
             let model = {
@@ -136,6 +138,7 @@ export class AIAnalysisTaskListHtmlController {
     picker.format = 'yyyy-MM-dd HH:mm:ss'
     picker.minView = DateTimePickerView.hour
     picker.date = datetime
+    picker.startView
     picker.init()
     return picker
   }

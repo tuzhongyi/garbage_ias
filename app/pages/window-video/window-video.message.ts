@@ -13,7 +13,7 @@ export class VideoWindowMessage implements VideoWindowMessageResponseEvent {
     'close',
   ])
 
-  event: EventEmitter<VideoWindowMessageRequestEvent> = new EventEmitter()
+  event = new EventEmitter<VideoWindowMessageRequestEvent>()
 
   close(): void {
     this.client.sender.emit('close')

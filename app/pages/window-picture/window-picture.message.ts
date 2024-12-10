@@ -13,7 +13,7 @@ export class PictureWindowMessage implements PictureWindowMessageResponseEvent {
     'close',
   ])
 
-  event: EventEmitter<PictureWindowMessageRequestEvent> = new EventEmitter()
+  event = new EventEmitter<PictureWindowMessageRequestEvent>()
 
   close(): void {
     this.client.sender.emit('close')

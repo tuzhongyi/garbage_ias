@@ -26,7 +26,7 @@ interface MessageEvent {
 }
 
 export class DeviceChannelListMessage {
-  event: EventEmitter<MessageEvent> = new EventEmitter()
+  event = new EventEmitter<MessageEvent>()
 
   constructor() {
     this.reigst()

@@ -70,21 +70,21 @@ export class RecordConfigIndexMessage implements MessageReceiverEvent {
     this.proxy.message({
       command: 'details_result',
       value: result,
-      index: 0,
+      index: result.index,
     })
   }
   delete_result(result: ResultArgs): void {
     this.proxy.message({
       command: 'delete_result',
       value: result,
-      index: 0,
+      index: result.index,
     })
   }
   save_result(args: ResultArgs): void {
     this.proxy.message({
       command: 'save_result',
       value: args,
-      index: 0,
+      index: args.index,
     })
   }
 
@@ -92,14 +92,14 @@ export class RecordConfigIndexMessage implements MessageReceiverEvent {
     this.proxy.message({
       command: 'record_start_result',
       value: args,
-      index: 0,
+      index: args.index,
     })
   }
   record_stop_result(args: ResultArgs): void {
     this.proxy.message({
       command: 'record_stop_result',
       value: args,
-      index: 0,
+      index: args.index,
     })
   }
 }

@@ -52,12 +52,14 @@ export namespace DeviceChannelDetails {
       promise
         .then((x) => {
           this.message.result({
+            index: 0,
             result: true,
           })
           this.message.close()
         })
         .catch((e) => {
           this.message.result({
+            index: 0,
             result: false,
           })
         })

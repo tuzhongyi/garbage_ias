@@ -60,14 +60,14 @@ export class UserManagerIndexMessage implements MessageReceiverEvent {
     this.proxy.message({
       command: 'details_result',
       value: result,
-      index: 0,
+      index: result.index,
     })
   }
   delete_result(result: ResultArgs): void {
     this.proxy.message({
       command: 'delete_result',
       value: result,
-      index: 0,
+      index: result.index,
     })
   }
 }

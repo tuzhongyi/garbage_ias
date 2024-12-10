@@ -1,0 +1,93 @@
+.forms {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.forms.headbody {
+  gap: 0;
+}
+
+.forms .forms-head {
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #d7d7d7;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.forms .forms-body {
+  padding: 20px;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.forms .form-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+}
+
+.forms .form-item .form-item-title {
+  width: 100px;
+  white-space: nowrap;
+  flex-grow: 0;
+}
+
+.forms .form-item .form-item-value {
+  width: calc(100% - 100px);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.forms .form-item .form-item-value.icon,
+.forms .form-item .form-item-value.unit {
+  display: flex;
+  position: relative;
+}
+
+.forms .form-item .form-item-value.unit input+i {
+  position: absolute;
+  height: 30px;
+  line-height: 30px;
+  font-size: 13px;
+  right: 10px;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+  font-style: normal;
+}
+
+.forms .form-item .form-item-value.unit input[type="number"]::-webkit-inner-spin-button,
+.forms .form-item .form-item-value.unit input[type="number"]::-webkit-outer-spin-button {
+  margin-right: 20px;
+}
+
+.forms .form-item .form-item-value.unit input[type="number"]._2::-webkit-inner-spin-button,
+.forms .form-item .form-item-value.unit input[type="number"]._2::-webkit-outer-spin-button {
+  margin-right: 30px;
+}
+
+.forms .form-item.submit {
+  margin-top: 20px;
+}
+
+.forms .form-item.plus .form-item-value {
+  width: calc(100% - 100px - 30px - 10px);
+}
+
+
+.forms .form-item .form-item-plus {
+  width: 30px;
+  margin-left: 10px;
+
+}

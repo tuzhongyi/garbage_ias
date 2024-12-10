@@ -16,7 +16,7 @@ export class VideoGPSWindowMessage
     'result',
   ])
 
-  event: EventEmitter<VideoGPSWindowMessageRequestEvent> = new EventEmitter()
+  event = new EventEmitter<VideoGPSWindowMessageRequestEvent>()
 
   close(): void {
     this.client.sender.emit('close')
