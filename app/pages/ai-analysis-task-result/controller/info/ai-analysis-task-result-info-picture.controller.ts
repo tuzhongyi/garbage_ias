@@ -8,11 +8,13 @@ export class AIAnalysisTaskResultInfoPictureController {
   private element = {
     picture: document.getElementById('picture') as HTMLImageElement,
     canvas: document.getElementById('canvas') as HTMLCanvasElement,
+    download: document.getElementById('img-download') as HTMLButtonElement,
   }
 
   private polygon: Point[] = []
 
   private zoom = false
+  private url = ''
 
   private zoomin() {
     this.element.canvas.style.display = 'none'
@@ -48,9 +50,24 @@ export class AIAnalysisTaskResultInfoPictureController {
         this.zoomout()
       }
     })
+    this.element.download.addEventListener('click', (e) => {
+      e.stopImmediatePropagation()
+      if (this.url) {
+        // window.open(this.url, '_blank')
+        let link = document.createElement('a')
+        link.style.display = 'none'
+        document.body.appendChild(link)
+        link.href = this.url
+        let name = this.url.split('/').pop()
+        link.download = name ?? ''
+        link.click()
+        document.body.removeChild(link)
+      }
+    })
   }
 
   load(url: string, polygon: Point[] = []) {
+    this.url = url
     Promise.resolve().then(() => {
       this.element.picture.style.backgroundImage = `url(${url})`
       if (this.zoom) {
