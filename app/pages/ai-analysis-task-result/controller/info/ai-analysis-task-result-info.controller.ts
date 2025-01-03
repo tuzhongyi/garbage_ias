@@ -1,4 +1,5 @@
 import { EventEmitter } from '../../../../common/event-emitter'
+import { Language } from '../../../../common/language'
 import { HtmlTool } from '../../../../common/tools/html-tool/html.tool'
 import { ShopSign } from '../../../../data-core/models/arm/analysis/shop-sign.model'
 import { Paged } from '../../../../data-core/models/page-list.model'
@@ -21,6 +22,7 @@ export class AIAnalysisTaskResultInfoController {
   private element = {
     info: {
       name: document.getElementById('Text') as HTMLInputElement,
+      type: document.getElementById('SignType') as HTMLInputElement,
       time: document.getElementById('Time') as HTMLInputElement,
       confidence: document.getElementById('Confidence') as HTMLInputElement,
     },
@@ -34,6 +36,7 @@ export class AIAnalysisTaskResultInfoController {
 
   load(paged: Paged<ShopSign>) {
     this.element.info.name.value = HtmlTool.set(paged.Data.Text)
+    this.element.info.type.value = Language.SignType(paged.Data.SignType, '')
     this.element.info.time.value = HtmlTool.set(paged.Data.Time, '', {
       format: 'yyyy-MM-dd HH:mm:ss.SSS',
     })

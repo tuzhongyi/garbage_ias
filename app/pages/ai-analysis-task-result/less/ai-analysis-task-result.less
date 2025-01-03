@@ -27,11 +27,24 @@
     height: calc(100% - 50px);
     gap: 20px;
 
+    @body-width: calc(100% - 20px * 2);
+
     &>* {
-      width: calc((100% - 20px * 2) / 3);
       border: 1px solid #d7d7d7;
       box-sizing: border-box;
       height: 100%;
+    }
+
+    &-map {
+      width: calc(@body-width * 0.25);
+    }
+
+    &-table {
+      width: calc(@body-width * 0.40);
+    }
+
+    &-info {
+      width: calc(@body-width * 0.35);
     }
   }
 

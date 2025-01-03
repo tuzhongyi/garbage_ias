@@ -4,7 +4,7 @@ declare var AMap: any
 export class AIAnalysisTaskResultMapIconController {
   private storage = SourceStorage.map.get()
 
-  create(selected = false) {
+  create1(selected = false) {
     let src = selected ? this.storage.amap_red : this.storage.amap_blue
     let width = 53
     let height = 68
@@ -23,5 +23,34 @@ export class AIAnalysisTaskResultMapIconController {
     icon = new AMap.Icon(opts)
 
     return icon
+  }
+
+  private icon(selected: boolean) {
+    return selected ? this.storage.amap_red : this.storage.amap_blue
+  }
+  private size(selected = false) {
+    let width = 53
+    let height = 68
+    let ratio = 6
+    if (selected) {
+      ratio = 2
+    }
+    return [width / ratio, height / ratio]
+  }
+  create() {
+    let icon = {
+      type: 'image',
+      image: this.icon(false),
+      size: this.size(false),
+      anchor: 'bottom-center',
+    }
+    return icon
+  }
+
+  get(selected = false) {
+    return {
+      image: this.icon(selected),
+      size: this.size(selected),
+    }
   }
 }

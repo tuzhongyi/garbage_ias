@@ -135,7 +135,7 @@ declare namespace AMap {
 
     /**设置点标记的显示图标。 参数image可传入string、Icon两种类型的值。
      * 若为string(图片url), 表示点标记以指定图片形式显示；若为Icon, 表示点标记以Icon对象形式显示**/
-    setIcon(content: string | Icon): void
+    setIcon(content: string | Icon | any): void
 
     /**当点标记未自定义图标时, 获取Icon内容**/
     getIcon(): string | Icon
@@ -907,7 +907,7 @@ declare namespace AMap {
     // 图标地址
     image?: string
     // 图标大小，默认值：[36, 36]
-    size?: Size
+    size?: Size | number[]
     // 图标所用图片偏移量
     clipOrigin?: Array<number> | Pixel
     // 图标锚点。 可选值： 'top-left'| 'top-center'| 'top-right'| 'middle-left'| 'center'| 'middle-right'| 'bottom-left'| 'bottom-center'| 'bottom-right' 。默认值：'top-left'

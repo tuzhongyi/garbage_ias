@@ -1,6 +1,6 @@
 import { wait } from '../../../../common/tools/wait'
 import { ShopSign } from '../../../../data-core/models/arm/analysis/shop-sign.model'
-import { AIAnalysisTaskResultMapPointController as Point } from './ai-analysis-task-result-map-point.controller'
+import { AIAnalysisTaskResultMapLayerController } from './ai-analysis-task-result-map-layer.controller'
 declare var AMap: any
 export class AIAnalysisTaskResultMapController {
   constructor() {
@@ -10,7 +10,7 @@ export class AIAnalysisTaskResultMapController {
 
   private map: AMap.Map
 
-  private points: Point[] = []
+  private layer!: AIAnalysisTaskResultMapLayerController
   private inited = false
   private loaded = false
 
@@ -19,61 +19,53 @@ export class AIAnalysisTaskResultMapController {
       resizeEnable: true,
       zoom: 17,
       zooms: [2, 20],
+      showIndoorMap: false,
     })
   }
   private regist() {
     this.map.on('complete', () => {
+      this.layer = new AIAnalysisTaskResultMapLayerController(this.map)
       this.inited = true
     })
   }
-  private append(data: ShopSign) {
-    if (data.Location) {
-      let point = new Point(data, this.map)
-      this.points.push(point)
-    }
-  }
-
   private _load(datas: ShopSign[]) {
-    for (let i = 0; i < datas.length; i++) {
-      const data = datas[i]
-      if (data.Location) {
-        this.append(data)
-      }
-    }
-    this.map.setFitView(null, true)
-    this.loaded = true
+    return new Promise<void>((resolve) => {
+      this.layer.load(datas).then((x) => {
+        this.map.setFitView(x)
+        this.loaded = true
+        resolve()
+      })
+    })
   }
 
-  private _select(id: string) {
-    this.points.forEach((x) => {
-      x.blue()
-    })
-    let selected = this.points.find((x) => {
-      return x.data.Id === id
-    })
-    if (selected) {
-      selected.select()
-    }
-  }
   select(id: string) {
     wait(
       () => {
         return this.inited && this.loaded
       },
       () => {
-        this._select(id)
+        this.layer.select(id)
       }
     )
   }
 
-  load(data: ShopSign[]) {
-    wait(
-      () => {
-        return this.inited
-      },
-      () => {
-        this._load(data)
-      }
-    )
+  async load(data: ShopSign[]) {
+    return new Promise<void>((resolve) => {
+      wait(
+        () => {
+          return this.inited
+        },
+        () => {
+          this._load(data).then(() => {
+            resolve()
+          })
+        }
+      )
+    })
+  }
+
+  clear() {
+    this.layer.clear()
+    this.loaded = false
   }
 }

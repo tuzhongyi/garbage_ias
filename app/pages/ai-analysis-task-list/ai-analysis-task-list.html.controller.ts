@@ -68,7 +68,7 @@ export class AIAnalysisTaskListHtmlController {
   }
 
   private initDuration() {
-    let duration = DateTimeTool.allYear(new Date())
+    let duration = DateTimeTool.beforeDay(new Date(), 365)
     let begin = this.initDateTimePicker(
       this.element.filter.time.begin,
       duration.begin

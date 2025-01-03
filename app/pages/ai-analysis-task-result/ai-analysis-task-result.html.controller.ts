@@ -8,9 +8,9 @@ import { HtmlTool } from '../../common/tools/html-tool/html.tool'
 import { wait } from '../../common/tools/wait'
 import { AnalysisTask } from '../../data-core/models/arm/analysis/analysis-task.model'
 import { Manager } from '../../data-core/requests/managers/manager'
-import { AIAnalysisTaskResultTableController } from './controller/ai-analysis-task-result-table.controller'
 import { AIAnalysisTaskResultInfoController } from './controller/info/ai-analysis-task-result-info.controller'
 import { AIAnalysisTaskResultMapController } from './controller/map/ai-analysis-task-result-map.controller'
+import { AIAnalysisTaskResultTableController } from './controller/table/ai-analysis-task-result-table.controller'
 
 export class AIAnalysisTaskResultHtmlController {
   event: EventEmitter<AIAnalysisTaskResultEvent> = new EventEmitter()

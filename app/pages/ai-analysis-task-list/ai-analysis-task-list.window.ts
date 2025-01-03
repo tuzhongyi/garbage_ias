@@ -17,7 +17,7 @@ class RecordWindow extends WindowModel {
   clear() {}
   style = {
     width: '85%',
-    height: '85%',
+    height: '90%',
   }
   url = '../ai-analysis-task-result/ai-analysis-task-result.html'
 }

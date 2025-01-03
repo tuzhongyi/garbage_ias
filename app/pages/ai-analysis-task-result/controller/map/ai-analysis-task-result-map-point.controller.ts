@@ -4,13 +4,12 @@ import { AIAnalysisTaskResultMapIconController } from './ai-analysis-task-result
 declare var AMap: any
 export class AIAnalysisTaskResultMapPointController {
   selected = false
-  constructor(public data: ShopSign, private map: AMap.Map) {
+  constructor(public data: ShopSign) {
     this.marker = this.create(data)
-    map.add(this.marker)
   }
 
   private icon = new AIAnalysisTaskResultMapIconController()
-  private marker: AMap.Marker
+  public marker: AMap.LabelMarker
 
   create(data: ShopSign) {
     if (data.Location) {
@@ -18,15 +17,13 @@ export class AIAnalysisTaskResultMapPointController {
         data.Location.Longitude,
         data.Location.Latitude
       )
-      let icon = this.icon.create(false)
-      const marker = new AMap.Marker({
+      let icon = this.icon.create()
+      const marker = new AMap.LabelMarker({
+        icon: icon,
         position: [...position],
         title: data.Text,
         name: data.Id,
         extData: data,
-        icon: icon,
-        offset: new AMap.Pixel(0, 0),
-        anchor: 'bottom-center',
       })
       return marker
     }
@@ -34,16 +31,16 @@ export class AIAnalysisTaskResultMapPointController {
 
   select() {
     if (this.selected) return
-    let icon = this.icon.create(true)
+    let icon = this.icon.get(true)
     this.marker.setIcon(icon)
     this.marker.setTop(true)
-    this.map.setCenter(this.marker.getPosition())
     this.selected = true
+    return this.marker.getPosition()
   }
 
-  blue() {
+  blur() {
     if (!this.selected) return
-    let icon = this.icon.create(false)
+    let icon = this.icon.get(false)
     this.marker.setIcon(icon)
     this.marker.setTop(false)
     this.selected = false

@@ -16,7 +16,17 @@ export class AIAnalysisTaskListHtmlTable {
     '#table tbody'
   ) as HTMLTableSectionElement
 
-  private widths = []
+  private widths = [
+    '60px',
+    'auto',
+    '150px',
+    '100px',
+    '100px',
+    '100px',
+    '200px',
+    '200px',
+    '100px',
+  ]
   private datas: AnalysisTask[] = []
 
   private init() {

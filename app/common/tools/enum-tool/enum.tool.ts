@@ -5,6 +5,11 @@ import { Manager } from '../../../data-core/requests/managers/manager'
 import { Language } from '../../language'
 
 export class EnumTool {
+  static values<T>(_enum: T): Array<T[keyof T]> {
+    return Object.keys(_enum as any)
+      .filter((key) => isNaN(Number(key)))
+      .map((key) => _enum[key as keyof T])
+  }
   static async ProxyChannelState(value?: ProxyChannelState): Promise<string> {
     return new Promise<string>((resolve) => {
       Manager.capability.inputproxy

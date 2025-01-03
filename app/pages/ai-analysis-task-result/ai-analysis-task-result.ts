@@ -2,10 +2,12 @@ import { LocationTool } from '../../common/tools/location.tool'
 import { AIAnalysisTaskResultBusiness } from './ai-analysis-task-result.business'
 import { AIAnalysisTaskResultHtmlController } from './ai-analysis-task-result.html.controller'
 import { AIAnalysisTaskResultMessage } from './ai-analysis-task-result.message'
+import { AIAnalysisTaskResultArgs } from './ai-analysis-task-result.model'
 
 export namespace AIAnalysisTaskResult {
   class Controller {
     constructor() {
+      this.init()
       this.regist()
       this.load()
     }
@@ -19,16 +21,26 @@ export namespace AIAnalysisTaskResult {
       return querys.id
     }
 
-    load() {
+    private args = new AIAnalysisTaskResultArgs()
+
+    private init() {
+      this.args.taskId = this.id
       if (this.id) {
         this.business.task(this.id).then((x) => {
           this.html.load(x)
         })
-        this.business.load(this.id).then((x) => {
-          this.html.table.load(x)
-          this.html.map.load(x)
-        })
       }
+    }
+
+    load() {
+      this.business.load(this.args).then((x) => {
+        this.html.table.load(x)
+        this.html.map.load(x)
+      })
+    }
+    clear() {
+      this.html.table.clear()
+      this.html.map.clear()
     }
 
     regist() {
@@ -45,6 +57,16 @@ export namespace AIAnalysisTaskResult {
           let url = this.business.picture(paged.Data.ImageUrl)
           this.html.info.picture.load(url, paged.Data.Polygon)
         }
+      })
+      this.html.table.filter.event.on('channel', (value) => {
+        this.args.channel = value
+        this.clear()
+        this.load()
+      })
+      this.html.table.filter.event.on('type', (value) => {
+        this.args.type = value
+        this.clear()
+        this.load()
       })
     }
   }

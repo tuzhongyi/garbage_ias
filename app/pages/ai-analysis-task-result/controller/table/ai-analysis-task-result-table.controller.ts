@@ -1,9 +1,11 @@
-import '../../../../assets/styles/table-sticky.less'
-import { EventEmitter } from '../../../common/event-emitter'
-import { LocaleCompare } from '../../../common/tools/compare-tool/compare.tool'
-import { HtmlTool } from '../../../common/tools/html-tool/html.tool'
-import { ShopSign } from '../../../data-core/models/arm/analysis/shop-sign.model'
-import { Page, Paged } from '../../../data-core/models/page-list.model'
+import '../../../../../assets/styles/table-sticky.less'
+import { EventEmitter } from '../../../../common/event-emitter'
+import { Language } from '../../../../common/language'
+import { LocaleCompare } from '../../../../common/tools/compare-tool/compare.tool'
+import { HtmlTool } from '../../../../common/tools/html-tool/html.tool'
+import { ShopSign } from '../../../../data-core/models/arm/analysis/shop-sign.model'
+import { Page, Paged } from '../../../../data-core/models/page-list.model'
+import { AIAnalysisTaskResultTableFilterController } from './ai-analysis-task-result-table-filter.controller'
 
 interface AIAnalysisTaskResultTableEvent {
   select(data: Paged<ShopSign>): void
@@ -11,6 +13,8 @@ interface AIAnalysisTaskResultTableEvent {
 
 export class AIAnalysisTaskResultTableController {
   event = new EventEmitter<AIAnalysisTaskResultTableEvent>()
+
+  filter = new AIAnalysisTaskResultTableFilterController()
   page = new Page()
   selected?: ShopSign
   constructor() {
@@ -23,7 +27,7 @@ export class AIAnalysisTaskResultTableController {
   private thead = document.querySelector(
     '#table thead'
   ) as HTMLTableSectionElement
-  private widths = ['60px', 'auto', '80px', '120px']
+  private widths = ['60px', 'auto', '85px', '60px', '80px', '120px']
   datas: ShopSign[] = []
 
   private init() {
@@ -35,6 +39,8 @@ export class AIAnalysisTaskResultTableController {
     let items = [
       (index + 1).toString(),
       HtmlTool.set(data.Text, '-'),
+      Language.SignType(data.SignType, '-'),
+      HtmlTool.set(data.CameraNo, '-'),
       HtmlTool.set(data.Confidence, '-', { percent: true }),
       HtmlTool.set(data.Time, '-', { format: 'HH:mm:ss.SSS' }),
     ]

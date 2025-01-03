@@ -42,6 +42,14 @@ export class GetShopSignsParams extends PagedDurationParams {
   ObjectStates?: number[]
   /**	Double	置信度，0-1	O	*/
   Confidence?: number
+  /**	String[]	商铺ID	O */
+  ShopIds?: string[]
+  /**	Int32[]	标注结果	O */
+  ResultLabelTypes?: number[]
+  /**	String[]	机位编号	O */
+  CameraNos?: string[]
+  /**	Int32[]	招牌类型，1：商铺招牌	O */
+  SignTypes?: number[]
   /**	String	升序属性，不区分大小写	O	*/
   Asc?: string
   /**	String	降序属性，不区分大小写	O	*/

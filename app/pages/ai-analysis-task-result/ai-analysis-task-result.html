@@ -66,6 +66,12 @@
                   </div>
                 </div>
                 <div class="form-item">
+                  <div class="form-item-title">招牌类型</div>
+                  <div class="form-item-value">
+                    <input type="text" id="SignType" readonly />
+                  </div>
+                </div>
+                <div class="form-item">
                   <div class="form-item-title">置信度</div>
                   <div class="form-item-value unit">
                     <input type="text" id="Confidence" readonly />
@@ -125,12 +131,39 @@
                   <tr>
                     <th>序号</th>
                     <th sort="Text">招牌名称</th>
+                    <th sort="CameraNo">类型</th>
+                    <th sort="SignType">机位</th>
                     <th sort="Confidence">置信度</th>
                     <th sort="Time">时间</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
               </table>
+            </div>
+            <div class="table-foot">
+              <div class="forms">
+                <div class="form-item">
+                  <div class="form-item-text">机位:</div>
+                  <div class="form-item-value">
+                    <select id="table-filter-channel">
+                      <option value="">全部</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-item">
+                  <div class="form-item-text">类型:</div>
+                  <div class="form-item-value">
+                    <select id="table-filter-type">
+                      <option value="">全部</option>
+                      <option value="1">商铺招牌</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -142,6 +175,6 @@
       securityJsCode: 'e1f1eeaee1b77531fa46d5230e2dfe20',
     }
   </script>
-  <script src="https://webapi.amap.com/maps?v=1.4.15&key=12be1c6c0ea1645659e2b7dcb2e263c5&plugin=AMap.GeoLocation,GeometryUtil"></script>
+  <script src="https://webapi.amap.com/maps?v=2.0&key=12be1c6c0ea1645659e2b7dcb2e263c5&plugin=AMap.GeoLocation,GeometryUtil"></script>
   <script src="./ai-analysis-task-result.ts"></script>
 </html>

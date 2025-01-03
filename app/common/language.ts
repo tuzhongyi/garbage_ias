@@ -1,4 +1,5 @@
 import { ShopObjectState } from '../data-core/enums/analysis/shop-object-state.enum'
+import { SignType } from '../data-core/enums/analysis/sign-type.enum'
 import { CalibrationAreaType } from '../data-core/enums/calibration_area_type.enum'
 import { DeviceProtocolType } from '../data-core/enums/device-protocol-type.enum'
 import { EventType } from '../data-core/enums/event-type.enum'
@@ -413,6 +414,32 @@ export class Language {
         return '新出现的'
       case ShopObjectState.Existed:
         return '长期存在的'
+      default:
+        return def
+    }
+  }
+  static SourceType(value?: number, def = '未知') {
+    switch (value) {
+      case 0:
+        return '视频文件'
+      default:
+        return def
+    }
+  }
+  static SignType(value?: SignType, def = '未知') {
+    switch (value) {
+      case SignType.ShopSign:
+        return '店铺招牌'
+      case SignType.Sign:
+        return '指示牌'
+      case SignType.StreetSign:
+        return '路牌'
+      case SignType.Billboard:
+        return '广告牌'
+      case SignType.Promotional:
+        return '宣传标语'
+      case SignType.Other:
+        return '其他'
       default:
         return def
     }
